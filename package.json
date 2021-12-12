@@ -7,13 +7,13 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/claire-sky/C10-Team-Profile-Generator.git"
   },
-  "author": "",
+  "author": "Claire Sky",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/claire-sky/C10-Team-Profile-Generator/issues"
