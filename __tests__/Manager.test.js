@@ -11,4 +11,5 @@ test('retrival of office number', () => {
 
     expect(manager.getOfficeNumber()).toBe('24');
     expect(manager.getOfficeNumber().length).toBeGreaterThan(0);
+    expect(manager.getRole()).toBe('Manager');
 })
