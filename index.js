@@ -4,6 +4,7 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const generateHTML = require('./src/page-template');
 
 // gather info for manager
 const managerInfo = () => {
@@ -207,3 +208,6 @@ const routing = () => {
 }
 
 managerInfo()
+    .then(answers => {
+        return generateHTML(answers);
+    });
