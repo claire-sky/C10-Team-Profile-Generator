@@ -14,7 +14,7 @@ Takes employee information and generates an HTML webpage that displays summaries
 4. Answer the prompts
 5. The team.html will be generated under the dist folder
 
-[Video Instructions](https://watch.screencastify.com/v/GCOmcXdjWfiYe4DxoBgZ)
+[Video Instructions](https://watch.screencastify.com/v/2auhqVhkiUfg89CP9e3R)
 
 ![Team Profile](./src/team-profile.JPG)
 

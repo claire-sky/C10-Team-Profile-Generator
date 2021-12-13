@@ -3,14 +3,13 @@ const generateCard = teamData => {
     const team = teamData.map(data => {
         const role = data.getRole();
         
-        switch(role) {
-            case 'Manager':
-                return generateManager(data);
-            case 'Engineer':
-                return generateEngineer(data);
-            case 'Intern':
-                return generateIntern(data);
-        };
+        if (role === 'Manager') {
+            return generateManager(data);
+        } else if (role === 'Engineer') {
+            return generateEngineer(data);
+        } else {
+            return generateIntern(data);
+        }
     });
     return team.join('');
 };
