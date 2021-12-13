@@ -16,6 +16,8 @@ Takes employee information and generates an HTML webpage that displays summaries
 
 [Video Instructions](https://watch.screencastify.com/v/GCOmcXdjWfiYe4DxoBgZ)
 
+![Team Profile](./src/team-profile.JPG)
+
 ## Usage 
 
 Have the following information ready about your team to answer the prompts quickly:
