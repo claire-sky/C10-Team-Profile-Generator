@@ -5,6 +5,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateHTML = require('./src/page-template');
+teamData = []
 
 // gather info for manager
 const managerInfo = () => {
@@ -62,6 +63,10 @@ const managerInfo = () => {
             }
         }
     ])
+    .then(answers => {
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+        teamData.push(manager);
+    })
     .then(routing);
 };
 
@@ -121,6 +126,10 @@ const engineerInfo = () => {
             }
         }
     ])
+    .then(answers => {
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+        teamData.push(engineer);
+    })
     .then(routing);
 };
 
@@ -168,7 +177,7 @@ const internInfo = () => {
         },
         {
             type: 'input',
-            name: 'officeNumber',
+            name: 'school',
             message: "What is the intern's school name?",
             validate: nameInput => {
                 if (nameInput) {
@@ -180,6 +189,10 @@ const internInfo = () => {
             }
         }
     ])
+    .then(answers => {
+        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+        teamData.push(intern);
+    })
     .then(routing);
 };
 
@@ -202,12 +215,27 @@ const routing = () => {
                 internInfo();
                 break;
             case "All members are entered":
+                writeToFile(generateHTML(teamData));
                 break;
         }
     })
 }
 
-managerInfo()
-    .then(answers => {
-        return generateHTML(answers);
+// function to write README file
+const writeToFile = fileContent => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/team.html', fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            resolve({
+                ok: true,
+                message: "File created!"
+            });
+        });
     });
+};
+
+managerInfo()
